@@ -1,1 +1,43 @@
+#include <iostream>
+#include <iomanip>
+#include <Windows.h>
 
+using namespace std;
+
+int main() {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    const int N = 4;
+    int matrix[N][N] = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12},
+        {13, 14, 15, 16}
+    };
+    // Вивід звичайної матриці
+    cout << "Звичайна матриця 4x4:" << endl;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+    // Перестановка рядків (обмін 1-го і 4-го рядка)
+    for (int j = 0; j < N; j++) {
+        swap(matrix[0][j], matrix[3][j]);
+    }
+    // Перестановка стовпців (обмін 1-го і 4-го стовпця)
+    for (int i = 0; i < N; i++) {
+        swap(matrix[i][0], matrix[i][3]);
+    }
+    // Вивід зміненої матриці
+    cout << "Матриця після перестановки рядків і стовпців:" << endl;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            cout  << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+   
+}
